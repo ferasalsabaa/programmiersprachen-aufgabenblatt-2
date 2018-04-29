@@ -11,7 +11,7 @@ TEST_CASE("describe_vec", "[vec]")
   REQUIRE(vector_zero.y_ == 0.0f );
 } 
  
-~Vec2();
+//~Vec2();
 
   Vec2 vector_numbers(2.0f, 3.0f );
 
