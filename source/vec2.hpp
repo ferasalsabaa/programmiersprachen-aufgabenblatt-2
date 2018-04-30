@@ -1,23 +1,20 @@
-#include"iostream"
-# ifndef VEC2_HPP
-# define VEC2_HPP
+#ifndef VEC2_HPP
+#define VEC2_HPP
+
 struct Vec2
 {
- float x_ ;
- float y_ ;
-    Vec2(){
-     float x_ = 0.0f;
-     float y_ = 0.0f;
-    }
-     ~Vec2()
-    {
-      std:: cout << "bla bla" ;
-    } 
- 
-    Vec2(float x_,float y_){
-     this -> x_ = x_;
-     this -> y_  = y_;
-    } 
+    float x_ ;
+    float y_ ;
+    Vec2();
+    ~Vec2();
     
-};
-# endif
+     
+    Vec2(float x,float y);
+    Vec2& operator += (Vec2 const& v);
+
+/*
+Vec2 & operator -=( Vec2 const & v );
+Vec2 & operator *=( float s );
+Vec2 & operator /=( float s );  */
+    };
+#endif
