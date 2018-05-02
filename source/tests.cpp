@@ -76,7 +76,7 @@ TEST_CASE("describe_vec2_/= ", "[vec2]")
 } 
 //2.4
 //addition
-   TEST_CASE("Addition", "[Vector]") 
+   TEST_CASE("Addition_funktion", "[Vector]") 
    {
     REQUIRE((Vec2(2.0, 3.0) + Vec2(2.0, 3.0)).x_==4.0f);
     REQUIRE((Vec2(2.0, 3.0) + Vec2(2.0, 3.0)).y_==6.0f);
@@ -84,7 +84,7 @@ TEST_CASE("describe_vec2_/= ", "[vec2]")
     REQUIRE((Vec2(2.0, 7.2) + Vec2(2.0, 1.2)).y_==8.4f);
    }
 //substraktion   
-   TEST_CASE("substraktion", "[Vector]") 
+   TEST_CASE("substraktion_funktion", "[Vector]") 
    {
     REQUIRE((Vec2(7.0, 4.0) - Vec2(7.0, 5.0)).x_==0.0f);
     REQUIRE((Vec2(7.0, 4.0) - Vec2(7.0, 5.0)).y_==-1.0f);
@@ -92,13 +92,20 @@ TEST_CASE("describe_vec2_/= ", "[vec2]")
     REQUIRE((Vec2(2.0, -7.2) - Vec2(2.0, 1.2)).y_==-8.4f);
    }
 // Multiplikation
-   TEST_CASE("Multiplikation", "[Vector]") 
+   TEST_CASE("Multiplikation_funktion", "[Vector]") 
    {
     REQUIRE((Vec2(2.0, 3.0) * 3).x_ ==  6.0f);
     REQUIRE((Vec2(2.0, 3.0) * 3).y_ ==  9.0f);
     REQUIRE((Vec2(0.0, 3.0) * 3).x_ ==  0.0f);
     REQUIRE((Vec2(2.0,-3.0) * 3).y_ == -9.0f);
-
+   }
+// Division
+   TEST_CASE("Division_funktion", "[Vector]") 
+   {
+    REQUIRE((Vec2(12.0, 3.0) / 3).x_ ==  4.0f);
+    REQUIRE((Vec2(2.0, 3.0) / 3).y_ ==  1.0f);
+    REQUIRE((Vec2(0.0, 7.0) / 3).x_ ==  0.0f);
+    REQUIRE((Vec2(2.0,-18.0) / 3).y_ == -6.0f);
    }
 
 int main(int argc, char *argv[])

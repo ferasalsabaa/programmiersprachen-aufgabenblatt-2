@@ -68,5 +68,16 @@ Vec2 operator *( Vec2 const & v , float s )
   Vec2 vector (s * v.x_ , s * v.y_) ;
   return vector ;
 }
-//Vec2 operator /( Vec2 const & v , float s );
+Vec2 operator /( Vec2 const & v , float s )
+{
+  if(s == 0)
+  {
+    std :: cout << "Die Zahl kann nicht 0 sein " << "/n" ;
+  }
+  else 
+  {
+  Vec2 vector (v.x_  / s , v.y_ / s) ;
+  return vector ;
+  }
+}
 //Vec2 operator *( float s , Vec2 const & v );
