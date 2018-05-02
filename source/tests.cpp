@@ -74,11 +74,21 @@ TEST_CASE("describe_vec2_/= ", "[vec2]")
    REQUIRE(v2.x_ == 4.11f );
    REQUIRE(v2.y_ == 3.2f );
 } 
+//2.4
 //addition
    TEST_CASE("Addition", "[Vector]") 
    {
     REQUIRE((Vec2(2.0, 3.0) + Vec2(2.0, 3.0)).x_==4.0f);
     REQUIRE((Vec2(2.0, 3.0) + Vec2(2.0, 3.0)).y_==6.0f);
+    REQUIRE((Vec2(4.5, 7.2) + Vec2(4.5, 1.2)).x_==9.0f);
+    REQUIRE((Vec2(2.0, 7.2) + Vec2(2.0, 1.2)).y_==8.4f);
+   }
+   TEST_CASE("substraktion", "[Vector]") 
+   {
+    REQUIRE((Vec2(7.0, 4.0) - Vec2(7.0, 5.0)).x_==0.0f);
+    REQUIRE((Vec2(7.0, 4.0) - Vec2(7.0, 5.0)).y_==-1.0f);
+    REQUIRE((Vec2(4.75, 7.2) - Vec2(4.5, 1.2)).x_==0.25f);
+    REQUIRE((Vec2(2.0, -7.2) - Vec2(2.0, 1.2)).y_==-8.4f);
    }
 
 int main(int argc, char *argv[])
