@@ -5,16 +5,11 @@
 #include <cmath>
 #include <iostream>
 
-  Vec2::Vec2() 
-  {
-      x_ = 0.0f;
-      y_ = 0.0f;
-  }
+  Vec2::Vec2() : x_{0.0}, y_{0.0}
+  {}
 
   Vec2::~Vec2()
-   {
-
-   }
+   {}
 
   Vec2::Vec2(float x, float y) 
   {
@@ -27,19 +22,24 @@
     {
       x_ +=  v.x_ ;
       y_ +=  v.y_ ;
+      return *this;
     }
     Vec2& 
     Vec2::operator -=( Vec2 const& v )
     {
       x_ -=  v.x_ ;
       y_ -=  v.y_ ;
+      return *this;
     }
+    
     Vec2&
     Vec2::operator *= (float s)
     {
       x_ *= s ;
       y_ *= s ;
+      return *this;
     }
+
     Vec2&
     Vec2::operator /= (float s)
     {
@@ -52,36 +52,33 @@
       x_ /= s ;
       y_ /= s ;
       }
+      return *this;
     }
 Vec2 operator+( Vec2 const & u , Vec2 const & v )
 {
-  Vec2 vector (u.x_+v.x_ , u.y_+v.y_) ;
+  Vec2 vector (u);
+  vector += v ;
   return vector ;
 }
 Vec2 operator-( Vec2 const & u , Vec2 const & v )
 {
-  Vec2 vector (u.x_-v.x_ , u.y_-v.y_) ;
+  Vec2 vector(u);
+  vector -= v ;
   return vector ;
 }
 Vec2 operator *( Vec2 const & v , float s )
 {
-  Vec2 vector (s * v.x_ , s * v.y_) ;
-  return vector ;
+  Vec2 vector (v) ;
+  vector *= s;
+  return vector;
 }
 Vec2 operator /( Vec2 const & v , float s )
 {
-  if(s == 0)
-  {
-    std :: cout << "Die Zahl kann nicht 0 sein " << "/n" ;
-  }
-  else 
-  {
-  Vec2 vector (v.x_  / s , v.y_ / s) ;
+  Vec2 vector (v) ;
+  vector /= s;
   return vector ;
-  }
 }
 Vec2 operator *( float s , Vec2 const & v )
 {
-  Vec2 vector (s * v.x_, s * v.y_) ;
-  return vector ;
+  return v*s ;
 }

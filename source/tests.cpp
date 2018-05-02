@@ -117,21 +117,21 @@ TEST_CASE("describe_vec2_/= ", "[vec2]")
    }   
 // 2.5
 //Standard constructor
-TEST_CASE("describe_mat2_Standard_constructor", "[vec]")
+TEST_CASE("describe_mat2_Standard_constructor", "[mat]")
 {
   Mat2 m1 ;
   REQUIRE(m1.arr[0][0]== 1 );
   REQUIRE(m1.arr[1][0]== 0 );
 }
 //User-Konstruktor
-TEST_CASE("describe_mat2_user_constructor", "[vec]")
+TEST_CASE("describe_mat2_user_constructor", "[mat]")
 {
   Mat2 m1{2,3,5,7} ;
   REQUIRE(m1.arr[0][0]== 2 );
   REQUIRE(m1.arr[1][0]== 5 );
 }
 //operator *=
-TEST_CASE("describe_mat2_*=", "[vec]")
+TEST_CASE("describe_mat2_*=", "[mat]")
 {
   Mat2 m1{1,2,3,4} ;
   Mat2 m2{5,1,2,4} ;
@@ -140,7 +140,7 @@ TEST_CASE("describe_mat2_*=", "[vec]")
   REQUIRE(m1.arr[1][1]== 19);
 }
 //operator *
-TEST_CASE("describe_mat2_*", "[vec]")
+TEST_CASE("describe_mat2_*", "[mat]")
 {
   Mat2 m1{1,2,3,4} ;
   Mat2 m2{5,1,2,4} ;
@@ -149,6 +149,8 @@ TEST_CASE("describe_mat2_*", "[vec]")
   REQUIRE( (m1 * m2).arr[1][1]== 19);
   REQUIRE( (m1 * m2).arr[1][0]== 23);
 }
+//2.6
+
 int main(int argc, char *argv[])
 {
   return Catch::Session().run(argc, argv);
