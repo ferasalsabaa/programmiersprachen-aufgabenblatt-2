@@ -130,7 +130,7 @@ TEST_CASE("describe_mat2_user_constructor", "[vec]")
   REQUIRE(m1.arr[0][0]== 2 );
   REQUIRE(m1.arr[1][0]== 5 );
 }
-//operator *
+//operator *=
 TEST_CASE("describe_mat2_*=", "[vec]")
 {
   Mat2 m1{1,2,3,4} ;
@@ -138,6 +138,16 @@ TEST_CASE("describe_mat2_*=", "[vec]")
   m1 *= (m2);
   REQUIRE(m1.arr[0][0]== 9 );
   REQUIRE(m1.arr[1][1]== 19);
+}
+//operator *
+TEST_CASE("describe_mat2_*", "[vec]")
+{
+  Mat2 m1{1,2,3,4} ;
+  Mat2 m2{5,1,2,4} ;
+  
+  REQUIRE( (m1 * m2).arr[0][0]== 9);
+  REQUIRE( (m1 * m2).arr[1][1]== 19);
+  REQUIRE( (m1 * m2).arr[1][0]== 23);
 }
 int main(int argc, char *argv[])
 {

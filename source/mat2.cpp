@@ -42,3 +42,14 @@ Mat2::operator *=( Mat2 const& m )
    arr[1][0]=a ;
    arr[1][1]=b ;
 }
+Mat2 operator *( Mat2 const & m1 , Mat2 const & m2 )
+{
+   Mat2 m3 ;
+   m3.arr[0][0] = (m1.arr[0][0]*m2.arr[0][0]) + (m1.arr[0][1]*m2.arr[1][0]) ;
+   m3.arr[0][1] = (m1.arr[0][0]*m2.arr[0][1]) + (m1.arr[0][1]*m2.arr[1][1]) ;
+   m3.arr[1][0] = (m1.arr[1][0]*m2.arr[0][0]) + (m1.arr[1][1]*m2.arr[1][0]) ;
+   m3.arr[1][1] = (m1.arr[1][0]*m2.arr[0][1]) + (m1.arr[1][1]*m2.arr[1][1]) ;
+   return m3 ;
+
+
+}
