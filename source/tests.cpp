@@ -41,6 +41,11 @@ TEST_CASE("describe_vec2_-= ", "[vec2]")
    v1.operator-= (v2);
    REQUIRE(v1.x_ == 0.0f );
    REQUIRE(v1.y_ == 0.0f );
+   Vec2 vector1(-2.0f, -3.0f );
+   Vec2 vector2(0.25f, 1.5f );
+   vector1.operator-= (vector2);
+   REQUIRE(vector1.x_ == -2.25f );
+   REQUIRE(vector1.y_ == -4.5f );
 } 
 TEST_CASE("describe_vec2_*= ", "[vec2]")
 {
