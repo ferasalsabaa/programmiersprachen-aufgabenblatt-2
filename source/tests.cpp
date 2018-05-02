@@ -4,14 +4,15 @@
 
 #include <catch.hpp>
 #include <iostream>
-
-
+//2.3
+//null constructor
 TEST_CASE("describe_vec2_constructor", "[vec]")
 {
   Vec2 v1 ;
   REQUIRE(v1.x_ == 0.0f );
   REQUIRE(v1.y_ == 0.0f );
-} 
+}
+// constructor 
 TEST_CASE("describe_vec2_constructor_values", "[vec2]")
 {
   Vec2 v1(2.0f, 3.0f );
@@ -21,54 +22,64 @@ TEST_CASE("describe_vec2_constructor_values", "[vec2]")
   REQUIRE(v2.x_ == 2.25f);
   REQUIRE(v2.y_ == 3.4f );
 } 
+//addieren
 TEST_CASE("describe_vec2_+= ", "[vec2]")
 {
    Vec2 v1(2.0f, 3.0f );
    Vec2 v2(2.0f, 3.0f );
-   v1.operator+= (v2);
+   v1 += (v2);
    REQUIRE(v1.x_ == 4.0f );
    REQUIRE(v1.y_ == 6.0f );
    Vec2 vector1(2.2f, 3.7f );
    Vec2 vector2(2.5f, 3.3f );
-   vector1.operator+= (vector2);
+   vector1 += (vector2);
    REQUIRE(vector1.x_ == 4.7f );
    REQUIRE(vector1.y_ == 7.0f );
 } 
+//substraktion
 TEST_CASE("describe_vec2_-= ", "[vec2]")
 {
    Vec2 v1(2.0f, 3.0f );
    Vec2 v2(2.0f, 3.0f );
-   v1.operator-= (v2);
+   v1 -= (v2);
    REQUIRE(v1.x_ == 0.0f );
    REQUIRE(v1.y_ == 0.0f );
    Vec2 vector1(-2.0f, -3.0f );
    Vec2 vector2(0.25f, 1.5f );
-   vector1.operator-= (vector2);
+   vector1 -= (vector2);
    REQUIRE(vector1.x_ == -2.25f );
    REQUIRE(vector1.y_ == -4.5f );
-} 
+}
+// mal
 TEST_CASE("describe_vec2_*= ", "[vec2]")
 {
    Vec2 v1(2.0f, 3.0f );
-   v1.operator*= (3);
+   v1 *= (3);
    REQUIRE(v1.x_ == 6.0f );
    REQUIRE(v1.y_ == 9.0f );
    Vec2 v2(2.22f, 3.55f );
-   v2.operator*= (0);
+   v2 *= (0);
    REQUIRE(v2.x_ == 0.0f );
    REQUIRE(v2.y_ == 0.0f );
 } 
+// Division
 TEST_CASE("describe_vec2_/= ", "[vec2]")
 {
    Vec2 v1(8.0f, 6.0f );
-   v1.operator/= (2);
+   v1 /= (2);
    REQUIRE(v1.x_ == 4.0f );
    REQUIRE(v1.y_ == 3.0f );
    Vec2 v2(8.22f, 6.4f );
-   v2.operator/= (2.0f);
+   v2 /= (2.0f);
    REQUIRE(v2.x_ == 4.11f );
    REQUIRE(v2.y_ == 3.2f );
 } 
+//addition
+   TEST_CASE("Addition", "[Vector]") 
+   {
+    REQUIRE((Vec2(2.0, 3.0) + Vec2(2.0, 3.0)).x_==4.0f);
+    REQUIRE((Vec2(2.0, 3.0) + Vec2(2.0, 3.0)).y_==6.0f);
+   }
 
 int main(int argc, char *argv[])
 {
