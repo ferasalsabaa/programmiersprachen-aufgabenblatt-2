@@ -5,16 +5,19 @@
 #include <cmath>
 #include <iostream>
 
-  Vec2::Vec2() {
+  Vec2::Vec2() 
+  {
       x_ = 0.0f;
       y_ = 0.0f;
   }
 
-  Vec2::~Vec2() {
+  Vec2::~Vec2()
+   {
 
-  }
+   }
 
-  Vec2::Vec2(float x, float y) {
+  Vec2::Vec2(float x, float y) 
+  {
     x_ = x;
     y_ = y;
   }
@@ -22,6 +25,12 @@
     Vec2& 
     Vec2::operator +=( Vec2 const& v )
     {
-      x_ += + v.x_ ;
-      y_ += + v.y_ ;
+      x_ +=  v.x_ ;
+      y_ +=  v.y_ ;
+    }
+    Vec2& 
+    Vec2::operator -=( Vec2 const& v )
+    {
+      x_ -=  v.x_ ;
+      y_ -=  v.y_ ;
     }
