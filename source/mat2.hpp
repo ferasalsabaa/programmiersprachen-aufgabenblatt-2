@@ -5,9 +5,10 @@
 
 struct Mat2
 {
-std::array<std::array<int, 3>, 4> arr;
+std::array<std::array<int, 2>, 2> arr;
 Mat2();
 Mat2(int a,int b,int c,int d);
+Mat2 & operator *=( Mat2 const & m );
    
 
 } ;

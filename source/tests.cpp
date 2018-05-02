@@ -126,9 +126,18 @@ TEST_CASE("describe_mat2_Standard_constructor", "[vec]")
 //User-Konstruktor
 TEST_CASE("describe_mat2_user_constructor", "[vec]")
 {
-  Mat2 m1(2,3,5,7) ;
+  Mat2 m1{2,3,5,7} ;
   REQUIRE(m1.arr[0][0]== 2 );
   REQUIRE(m1.arr[1][0]== 5 );
+}
+//operator *
+TEST_CASE("describe_mat2_*=", "[vec]")
+{
+  Mat2 m1{1,2,3,4} ;
+  Mat2 m2{5,1,2,4} ;
+  m1 *= (m2);
+  REQUIRE(m1.arr[0][0]== 9 );
+  REQUIRE(m1.arr[1][1]== 19);
 }
 int main(int argc, char *argv[])
 {
