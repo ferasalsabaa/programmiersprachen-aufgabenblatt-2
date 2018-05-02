@@ -14,9 +14,12 @@ TEST_CASE("describe_vec2_constructor", "[vec]")
 } 
 TEST_CASE("describe_vec2_constructor_values", "[vec2]")
 {
-   Vec2 v1(2.0f, 3.0f );
+  Vec2 v1(2.0f, 3.0f );
+  Vec2 v2(2.25f, 3.4f );
   REQUIRE(v1.x_ == 2.0f );
   REQUIRE(v1.y_ == 3.0f );
+  REQUIRE(v2.x_ == 2.25f );
+  REQUIRE(v2.y_ == 3.4f );
 } 
 TEST_CASE("describe_vec2_+= ", "[vec2]")
 {

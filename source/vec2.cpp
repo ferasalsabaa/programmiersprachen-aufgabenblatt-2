@@ -43,6 +43,13 @@
     Vec2&
     Vec2::operator /= (float s)
     {
+      if(s == 0)
+      {
+        std :: cout << "die Zahl soll grosser als 0 sein" ;
+      }
+      else
+      {
       x_ /= s ;
       y_ /= s ;
+      }
     }
