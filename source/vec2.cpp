@@ -40,4 +40,9 @@
       x_ *= s ;
       y_ *= s ;
     }
-   // Vec2& operator /= (float s);
+    Vec2&
+    Vec2::operator /= (float s)
+    {
+      x_ /= s ;
+      y_ /= s ;
+    }
