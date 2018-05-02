@@ -18,7 +18,7 @@ TEST_CASE("describe_vec2_constructor_values", "[vec2]")
   Vec2 v2(2.25f, 3.4f );
   REQUIRE(v1.x_ == 2.0f );
   REQUIRE(v1.y_ == 3.0f );
-  REQUIRE(v2.x_ == 2.25f );
+  REQUIRE(v2.x_ == 2.25f);
   REQUIRE(v2.y_ == 3.4f );
 } 
 TEST_CASE("describe_vec2_+= ", "[vec2]")
@@ -28,6 +28,11 @@ TEST_CASE("describe_vec2_+= ", "[vec2]")
    v1.operator+= (v2);
    REQUIRE(v1.x_ == 4.0f );
    REQUIRE(v1.y_ == 6.0f );
+   Vec2 vector1(2.2f, 3.7f );
+   Vec2 vector2(2.5f, 3.3f );
+   vector1.operator+= (vector2);
+   REQUIRE(vector1.x_ == 4.7f );
+   REQUIRE(vector1.y_ == 7.0f );
 } 
 TEST_CASE("describe_vec2_-= ", "[vec2]")
 {
