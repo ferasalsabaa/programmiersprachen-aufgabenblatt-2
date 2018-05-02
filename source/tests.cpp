@@ -1,7 +1,7 @@
 #define CATCH_CONFIG_RUNNER
 
 #include "vec2.hpp"
-
+#include "mat2.hpp"
 #include <catch.hpp>
 #include <iostream>
 //2.3
@@ -115,7 +115,21 @@ TEST_CASE("describe_vec2_/= ", "[vec2]")
     REQUIRE((3 * Vec2(0.0, 3.0)).x_ ==  0.0f);
     REQUIRE((3 * Vec2(2.0,-3.0)).y_ == -9.0f);
    }   
-
+// 2.5
+//Standard constructor
+TEST_CASE("describe_mat2_Standard_constructor", "[vec]")
+{
+  Mat2 m1 ;
+  REQUIRE(m1.arr[0][0]== 1 );
+  REQUIRE(m1.arr[1][0]== 0 );
+}
+//User-Konstruktor
+TEST_CASE("describe_mat2_user_constructor", "[vec]")
+{
+  Mat2 m1(2,3,5,7) ;
+  REQUIRE(m1.arr[0][0]== 2 );
+  REQUIRE(m1.arr[1][0]== 5 );
+}
 int main(int argc, char *argv[])
 {
   return Catch::Session().run(argc, argv);
