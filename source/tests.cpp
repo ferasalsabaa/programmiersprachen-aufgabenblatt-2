@@ -64,6 +64,10 @@ TEST_CASE("describe_vec2_/= ", "[vec2]")
    v1.operator/= (2);
    REQUIRE(v1.x_ == 4.0f );
    REQUIRE(v1.y_ == 3.0f );
+   Vec2 v2(8.22f, 6.4f );
+   v2.operator/= (2.0f);
+   REQUIRE(v2.x_ == 4.11f );
+   REQUIRE(v2.y_ == 3.2f );
 } 
 
 int main(int argc, char *argv[])
