@@ -80,4 +80,8 @@ Vec2 operator /( Vec2 const & v , float s )
   return vector ;
   }
 }
-//Vec2 operator *( float s , Vec2 const & v );
+Vec2 operator *( float s , Vec2 const & v )
+{
+  Vec2 vector (s * v.x_, s * v.y_) ;
+  return vector ;
+}

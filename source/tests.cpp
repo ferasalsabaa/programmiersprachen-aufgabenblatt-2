@@ -107,6 +107,14 @@ TEST_CASE("describe_vec2_/= ", "[vec2]")
     REQUIRE((Vec2(0.0, 7.0) / 3).x_ ==  0.0f);
     REQUIRE((Vec2(2.0,-18.0) / 3).y_ == -6.0f);
    }
+// Multiplikation 2
+   TEST_CASE("Multiplikation_funktion_2", "[Vector]") 
+   {
+    REQUIRE((3 * Vec2(2.0, 3.0)).x_ ==  6.0f);
+    REQUIRE((3 * Vec2(2.0, 3.0)).y_ ==  9.0f);
+    REQUIRE((3 * Vec2(0.0, 3.0)).x_ ==  0.0f);
+    REQUIRE((3 * Vec2(2.0,-3.0)).y_ == -9.0f);
+   }   
 
 int main(int argc, char *argv[])
 {
