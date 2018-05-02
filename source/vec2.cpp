@@ -55,14 +55,18 @@
     }
 Vec2 operator+( Vec2 const & u , Vec2 const & v )
 {
-   Vec2 vector (u.x_+v.x_ , u.y_+v.y_) ;
-   return vector ;
+  Vec2 vector (u.x_+v.x_ , u.y_+v.y_) ;
+  return vector ;
 }
 Vec2 operator-( Vec2 const & u , Vec2 const & v )
 {
   Vec2 vector (u.x_-v.x_ , u.y_-v.y_) ;
-   return vector ;
+  return vector ;
 }
-//Vec2 operator *( Vec2 const & v , float s );
+Vec2 operator *( Vec2 const & v , float s )
+{
+  Vec2 vector (s * v.x_ , s * v.y_) ;
+  return vector ;
+}
 //Vec2 operator /( Vec2 const & v , float s );
 //Vec2 operator *( float s , Vec2 const & v );

@@ -50,7 +50,7 @@ TEST_CASE("describe_vec2_-= ", "[vec2]")
    REQUIRE(vector1.x_ == -2.25f );
    REQUIRE(vector1.y_ == -4.5f );
 }
-// mal
+// Multiplikation
 TEST_CASE("describe_vec2_*= ", "[vec2]")
 {
    Vec2 v1(2.0f, 3.0f );
@@ -83,12 +83,22 @@ TEST_CASE("describe_vec2_/= ", "[vec2]")
     REQUIRE((Vec2(4.5, 7.2) + Vec2(4.5, 1.2)).x_==9.0f);
     REQUIRE((Vec2(2.0, 7.2) + Vec2(2.0, 1.2)).y_==8.4f);
    }
+//substraktion   
    TEST_CASE("substraktion", "[Vector]") 
    {
     REQUIRE((Vec2(7.0, 4.0) - Vec2(7.0, 5.0)).x_==0.0f);
     REQUIRE((Vec2(7.0, 4.0) - Vec2(7.0, 5.0)).y_==-1.0f);
     REQUIRE((Vec2(4.75, 7.2) - Vec2(4.5, 1.2)).x_==0.25f);
     REQUIRE((Vec2(2.0, -7.2) - Vec2(2.0, 1.2)).y_==-8.4f);
+   }
+// Multiplikation
+   TEST_CASE("Multiplikation", "[Vector]") 
+   {
+    REQUIRE((Vec2(2.0, 3.0) * 3).x_ ==  6.0f);
+    REQUIRE((Vec2(2.0, 3.0) * 3).y_ ==  9.0f);
+    REQUIRE((Vec2(0.0, 3.0) * 3).x_ ==  0.0f);
+    REQUIRE((Vec2(2.0,-3.0) * 3).y_ == -9.0f);
+
    }
 
 int main(int argc, char *argv[])
