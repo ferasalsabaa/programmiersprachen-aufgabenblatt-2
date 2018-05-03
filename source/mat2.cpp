@@ -44,7 +44,7 @@ Mat2::det ( ) const
 Mat2 inverse ( Mat2 const & m )
 {
   double fraction ;  
-  Mat2 m1(m);
+  Mat2 m1{m};
   fraction = m.det() ;
   fraction = 1 / fraction;
   m1.arr[0][0] = m.arr[1][1] ;
@@ -56,4 +56,11 @@ Mat2 inverse ( Mat2 const & m )
   m1.arr[1][0] *= fraction ;
   m1.arr[1][1] *= fraction ;
   return m1;
+}
+Mat2 transpose ( Mat2 const & m )
+{
+  Mat2 m1{m};
+  m1.arr[0][1] = m.arr[1][0] ;
+  m1.arr[1][0] = m.arr[0][1]  ;
+  return m1 ;
 }

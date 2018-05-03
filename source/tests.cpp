@@ -170,6 +170,18 @@ TEST_CASE("describe_mat2_inverse", "[mat]")
   REQUIRE( m3.arr[1][0]== Approx(0.333).epsilon(0.001));
   REQUIRE( m3.arr[1][1]== Approx(-0.111).epsilon(0.001)); 
 }
+//transpose
+TEST_CASE("describe_mat2_transpose", "[mat]")
+{
+  Mat2 m1{2,4,6,3} ;
+  Mat2 m2 = transpose(m1) ;
+  
+  REQUIRE( m2.arr[0][0]== 2);
+  REQUIRE( m2.arr[0][1]== 6);
+  REQUIRE( m2.arr[1][0]== 4);
+  REQUIRE( m2.arr[1][1]== 3); 
+}
+
 int main(int argc, char *argv[])
 {
   return Catch::Session().run(argc, argv);
