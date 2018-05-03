@@ -3,6 +3,8 @@
 #include "vec2.hpp"
 #include "mat2.hpp"
 #include "color.hpp"
+#include "circle.hpp"
+#include "rectangle.hpp"
 #include <catch.hpp>
 #include <iostream>
 //2.3
@@ -240,10 +242,22 @@ TEST_CASE("describe_color", "[color]")
   REQUIRE( black.r== Approx(0.0).epsilon(0.001));
   REQUIRE( black.g== Approx(0.0).epsilon(0.001));
   REQUIRE( black.b== Approx(0.0).epsilon(0.001));
+}
+//2.8 
+TEST_CASE("describe_circle", "[circle]")
+{
+  Circle c1;
+  Vec2 v1{2,3};
+  Circle c2 {22,v1};
+  REQUIRE(c1.get_radius() == 0) ;
+  REQUIRE(c1.get_center().x_ == 0) ;
+  REQUIRE(c1.get_center().y_ == 0) ;
+  REQUIRE(c2.get_radius() == 22) ;
+  REQUIRE(c2.get_center().x_ ==2) ;
+  REQUIRE(c2.get_center().y_ == 3) ;
+}
   
 
-  
-}
 
 int main(int argc, char *argv[])
 {

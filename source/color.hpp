@@ -10,7 +10,7 @@ struct Color
    float b;
    Color (float x) : r{x}, g{x} , b{x}
    {
-      x = max(x,0.0f) || min (x, 1.0f); 
+      x = max(x,1.0f) || min (x, 0.0f); 
    }
    Color (float r1, float g1, float b1) : r{r1}, g{g1}, b{b1}
    {
