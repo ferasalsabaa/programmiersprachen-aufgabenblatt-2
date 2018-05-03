@@ -71,3 +71,16 @@ Vec2 operator *( Vec2 const & v , Mat2 const & m )
   vector.y_ = (m.arr[1][0] *  v.x_) + (m.arr[1][1]*v.y_) ;
   return vector ;
 }
+Vec2 operator *( Mat2 const & m , Vec2 const & v )
+{
+  return v * m ;
+}
+Mat2 make_rotation_mat2 ( float phi )
+{
+  Mat2 m ;
+  m.arr[0][0] = cos (phi) ;
+  m.arr[0][1] = -sin (phi) ;
+  m.arr[1][0] = sin (phi) ;
+  m.arr[1][1] = cos (phi) ;
+  return m ;
+}

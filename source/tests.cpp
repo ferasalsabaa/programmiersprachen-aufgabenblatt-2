@@ -2,6 +2,7 @@
 
 #include "vec2.hpp"
 #include "mat2.hpp"
+#include "color.hpp"
 #include <catch.hpp>
 #include <iostream>
 //2.3
@@ -182,7 +183,7 @@ TEST_CASE("describe_mat2_transpose", "[mat]")
   REQUIRE( m2.arr[1][1]== 3); 
 }
 //operator vector * matrix
-TEST_CASE("describe_mat2_operator*_matrix_vector", "[mat]")
+TEST_CASE("describe_mat2_operator*_vector_matrix", "[mat]")
 {
   Mat2 m1{1,2,3,4} ;
   Vec2 v1{5,6} ;
@@ -195,6 +196,53 @@ TEST_CASE("describe_mat2_operator*_matrix_vector", "[mat]")
   REQUIRE( v_result.y_ == 39);
   REQUIRE( v_result2.x_ == 16);
   REQUIRE( v_result2.y_ == 9);
+}
+//operator matrix * vector
+TEST_CASE("describe_mat2_operator*_matrix_vector", "[mat]")
+{
+  Mat2 m1{1,2,3,4} ;
+  Vec2 v1{5,6} ;
+  Vec2 v_result = m1 * v1 ;
+  Mat2 m2{2,4,3,1} ;
+  Vec2 v2{2,3} ;
+  Vec2 v_result2 = m2* v2 ;
+  
+  REQUIRE( v_result.x_ == 17);
+  REQUIRE( v_result.y_ == 39);
+  REQUIRE( v_result2.x_ == 16);
+  REQUIRE( v_result2.y_ == 9);
+}
+//Winkel 
+TEST_CASE("describe_mat2_winkel_phi", "[mat]")
+{
+  float x = 45 ;
+  float y = 90 ;
+  
+  REQUIRE( make_rotation_mat2(x).arr[0][0] == Approx(0.525).epsilon(0.001));
+  REQUIRE( make_rotation_mat2(x).arr[0][1] == Approx(-0.85).epsilon(0.001));
+  REQUIRE( make_rotation_mat2(x).arr[1][0] == Approx(0.85).epsilon(0.001));
+  REQUIRE( make_rotation_mat2(x).arr[1][1] == Approx(0.525).epsilon(0.001));
+
+  REQUIRE( make_rotation_mat2(y).arr[0][0] == Approx(-0.448).epsilon(0.001));
+  REQUIRE( make_rotation_mat2(y).arr[0][1] == Approx(-0.893).epsilon(0.001));
+  REQUIRE( make_rotation_mat2(y).arr[1][0] == Approx(0.893).epsilon(0.001));
+  REQUIRE( make_rotation_mat2(y).arr[1][1] == Approx(-0.448).epsilon(0.001));
+  
+}
+//2.7 color
+TEST_CASE("describe_color", "[color]")
+{
+  Color black {0.0}; // sets r = g = b =0.0
+  Color red {1.0 ,0.0 ,0.0};
+  
+  REQUIRE( red.r== Approx(1.0).epsilon(0.001));
+  REQUIRE( red.g== Approx(0.0).epsilon(0.001));
+  REQUIRE( red.b== Approx(0.0).epsilon(0.001));
+  REQUIRE( black.r== Approx(0.0).epsilon(0.001));
+  REQUIRE( black.g== Approx(0.0).epsilon(0.001));
+  REQUIRE( black.b== Approx(0.0).epsilon(0.001));
+  
+
   
 }
 
