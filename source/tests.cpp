@@ -222,7 +222,6 @@ TEST_CASE("describe_mat2_winkel_phi", "[mat]")
   REQUIRE( make_rotation_mat2(x).arr[0][1] == Approx(-0.85).epsilon(0.001));
   REQUIRE( make_rotation_mat2(x).arr[1][0] == Approx(0.85).epsilon(0.001));
   REQUIRE( make_rotation_mat2(x).arr[1][1] == Approx(0.525).epsilon(0.001));
-
   REQUIRE( make_rotation_mat2(y).arr[0][0] == Approx(-0.448).epsilon(0.001));
   REQUIRE( make_rotation_mat2(y).arr[0][1] == Approx(-0.893).epsilon(0.001));
   REQUIRE( make_rotation_mat2(y).arr[1][0] == Approx(0.893).epsilon(0.001));
