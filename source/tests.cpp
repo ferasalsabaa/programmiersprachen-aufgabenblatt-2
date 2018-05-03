@@ -150,7 +150,26 @@ TEST_CASE("describe_mat2_*", "[mat]")
   REQUIRE( (m1 * m2).arr[1][0]== 23);
 }
 //2.6
-
+//Determinant
+TEST_CASE("describe_mat2_determinant", "[mat]")
+{
+  Mat2 m{4,3,2,3};
+  float det1 = m.det();
+  Mat2 m1{2,4,6,3};
+  float det2 = m1.det();
+  REQUIRE( det2== -18);
+}
+//Inverse
+TEST_CASE("describe_mat2_inverse", "[mat]")
+{
+  Mat2 m1{2,4,6,3} ;
+  Mat2 m3 = inverse(m1) ;
+  
+  REQUIRE( m3.arr[0][0]== Approx(-0.1666).epsilon(0.001));
+  REQUIRE( m3.arr[0][1]== Approx(0.222).epsilon(0.001));
+  REQUIRE( m3.arr[1][0]== Approx(0.333).epsilon(0.001));
+  REQUIRE( m3.arr[1][1]== Approx(-0.111).epsilon(0.001)); 
+}
 int main(int argc, char *argv[])
 {
   return Catch::Session().run(argc, argv);

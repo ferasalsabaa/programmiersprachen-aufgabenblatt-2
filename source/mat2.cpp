@@ -34,9 +34,26 @@ Mat2 operator *( Mat2 const & m1 , Mat2 const & m2 )
    m3 *= m2;
    return m3 ;
 }
+float
+Mat2::det ( ) const
+{
+  float det ;
+  det = arr[0][0]*arr[1][1] - arr[0][1]*arr[1][0] ;
+  return det ;
+}
 Mat2 inverse ( Mat2 const & m )
 {
   double fraction ;  
-  Mate2 m1(m);
-  fraction = (m1[0][0]*m1[1][1]) - (m1[0][1]*m1[1][0]) ;
+  Mat2 m1(m);
+  fraction = m.det() ;
+  fraction = 1 / fraction;
+  m1.arr[0][0] = m.arr[1][1] ;
+  m1.arr[1][1] = m.arr[0][0] ;
+  m1.arr[0][1] *= -1 ;
+  m1.arr[1][0] *= -1 ;
+  m1.arr[0][0] *= fraction ;
+  m1.arr[0][1] *= fraction ;
+  m1.arr[1][0] *= fraction ;
+  m1.arr[1][1] *= fraction ;
+  return m1;
 }
