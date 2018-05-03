@@ -181,6 +181,22 @@ TEST_CASE("describe_mat2_transpose", "[mat]")
   REQUIRE( m2.arr[1][0]== 4);
   REQUIRE( m2.arr[1][1]== 3); 
 }
+//operator vector * matrix
+TEST_CASE("describe_mat2_operator*_matrix_vector", "[mat]")
+{
+  Mat2 m1{1,2,3,4} ;
+  Vec2 v1{5,6} ;
+  Vec2 v_result = v1* m1 ;
+  Mat2 m2{2,4,3,1} ;
+  Vec2 v2{2,3} ;
+  Vec2 v_result2 = v2* m2 ;
+  
+  REQUIRE( v_result.x_ == 17);
+  REQUIRE( v_result.y_ == 39);
+  REQUIRE( v_result2.x_ == 16);
+  REQUIRE( v_result2.y_ == 9);
+  
+}
 
 int main(int argc, char *argv[])
 {

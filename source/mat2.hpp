@@ -13,11 +13,11 @@ Mat2 & operator *=( Mat2 const & m );
 float det () const ;                                        // jap
 } ;
 
-Mat2 operator *( Mat2 const & m1 , Mat2 const & m2 );       //nooooo
+Mat2 operator *( Mat2 const & m1 , Mat2 const & m2 );       //jap
 Vec2 operator *( Vec2 const & v , Mat2 const & m );         //nooo
 Vec2 operator *( Mat2 const & m , Vec2 const & v );         //nooo
 Mat2 inverse ( Mat2 const & m );                            //jap
-Mat2 transpose ( Mat2 const & m );                        // .....
+Mat2 transpose ( Mat2 const & m );                          // jap
 
 
 

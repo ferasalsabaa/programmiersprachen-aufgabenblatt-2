@@ -64,3 +64,10 @@ Mat2 transpose ( Mat2 const & m )
   m1.arr[1][0] = m.arr[0][1]  ;
   return m1 ;
 }
+Vec2 operator *( Vec2 const & v , Mat2 const & m )
+{
+  Vec2 vector ;
+  vector.x_ = (m.arr[0][0] * v.x_) + (m.arr[0][1]*v.y_) ;
+  vector.y_ = (m.arr[1][0] *  v.x_) + (m.arr[1][1]*v.y_) ;
+  return vector ;
+}
