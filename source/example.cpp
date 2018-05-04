@@ -6,6 +6,7 @@
 #include "color.hpp"
 #include <utility>
 #include <cmath>
+#include <iostream>
 
 
 int main(int argc, char* argv[])
@@ -54,14 +55,15 @@ int main(int argc, char* argv[])
     //rectangle
     Vec2 max(700,600);
     Vec2 min(200,400);
-    Color color1(0.0f , 0.0f , 1.0f);
-    Color color2(0.0f , 1.0f , 0.0f);
+    Color color1(0.0f,0.0f,1.0f);
+    Color color2(0.0f,1.0f,0.0f);
+    Color color3(1.0f,0.0f,0.0f);
     Rectangle rectang1e1(max,min,color1);
     Rectangle rectang1e2(max,min,color1);
     Rectangle rectang1e3(max,min,color1);
     rectang1e1.draw(win);
     //circle
-    float radius = 100;
+    float radius = 200;
     Vec2 v1(400.0f,400.0f);
     Circle circle1(radius,v1,color1);
     Circle circle2(radius,v1,color1);
@@ -95,6 +97,28 @@ int main(int argc, char* argv[])
       target.draw(win,color1);
     }
   }
+//2.14
+int second=(int) win.get_time() % 60;
+int minute=0;
+int hour=0;
+if(second>60)
+{
+  minute = win.get_time() / 60;
+}
+if(minute > 60)
+{
+  hour = win.get_time() / 60;
+}
+double x_second{400 + 100 * std::sin(second*2 *M_PI / 60)};
+double y_second{400 - 100 *  std::cos(second*2 *M_PI / 60)};
+win.draw_line(400,400,x_second,y_second,color1.r,color1.g,color1.b);
+double x_minute{400 + 165 * std::sin(minute*2 *M_PI / 60)};
+double y_minute{400 - 165 *  std::cos(minute*2 *M_PI / 60)};
+win.draw_line(400,400,x_minute,y_minute,color3.r,color3.g,color3.b);
+double x_hour{400 + 180 * std::sin(hour*2 *M_PI / 60)};
+double y_hour{400 - 180 *  std::cos(hour*2 *M_PI / 60)};
+win.draw_line(400,400,x_hour,y_hour,color1.r,color1.g,color1.b);
+
     
     
     
