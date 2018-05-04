@@ -26,3 +26,12 @@ Vec2 Rectangle::get_min()
 {
     return min_;
 }
+
+ float Rectangle::circumference() const
+{
+    float length;
+    float width;
+    length =fabs(max_.x_ - min_.x_);
+    width = fabs(max_.y_ - min_.y_);
+    return 2*length + 2*width;
+}

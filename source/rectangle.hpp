@@ -14,6 +14,7 @@ class Rectangle
   Rectangle(Vec2 max_, Vec2 min_);
   Vec2 get_max();
   Vec2 get_min();
+  float circumference() const;
 };
 
 

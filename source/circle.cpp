@@ -17,3 +17,7 @@ Vec2 Circle::get_center()
  {
      return radius_ ;
  }
+float Circle::circumference() const
+{
+    return 2*M_PI*radius_;
+}

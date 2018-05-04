@@ -273,10 +273,32 @@ TEST_CASE("describe_rectangle", "[rectangle]")
   REQUIRE(r2.get_max().y_== 6);
   REQUIRE(r2.get_min().x_== 2);
   REQUIRE(r2.get_min().y_== 4);
-   REQUIRE(r3.get_max().x_== 7);
+  REQUIRE(r3.get_max().x_== 7);
   REQUIRE(r3.get_max().y_== 6);
   REQUIRE(r3.get_min().x_== 2);
   REQUIRE(r3.get_min().y_== 4);
+}
+//2.9
+//circumference for circle
+TEST_CASE("describe_circle_circumference", "[circle]")
+{
+  Vec2 v1{2,3};
+  Circle c1 {22,v1};
+  Circle c2 {5,v1};
+  REQUIRE(c1.circumference() == Approx(138.23).epsilon(0.001)) ;
+  REQUIRE(c2.circumference() == Approx(31.415).epsilon(0.001)) ;
+}
+//circumference for rectangle
+TEST_CASE("describe_rectangle_circumference", "[rectangle]")
+{
+  Vec2 v1{2,4};
+  Vec2 v2{7,6};
+  Rectangle r1 {v2,v1};
+  Vec2 v3{2,6};
+  Vec2 v4{7,4};
+  Rectangle r2 {v3,v4};
+  REQUIRE(r1.circumference() == Approx(14).epsilon(0.001)) ;
+  REQUIRE(r2.circumference() == Approx(14).epsilon(0.001)) ;
 }
 
 int main(int argc, char *argv[])

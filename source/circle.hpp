@@ -12,6 +12,7 @@ class Circle
   Circle(float radius, Vec2 center);
   Vec2 get_center();
   float get_radius ();
+  float circumference() const;
 };
 
 
