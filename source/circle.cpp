@@ -27,7 +27,7 @@ Color Circle::get_color_circle()
 }
 void Circle::draw(Window const& w1)
 {
-    for(int i = 500 ; i>0;i--)
+    for(int i=0;i<500;i++)
     {
     float x1{center_.x_ + radius_ * std::sin(w1.get_time()-i)};
     float y1{center_.y_+ radius_ * std::cos(w1.get_time()-i)};
@@ -36,7 +36,7 @@ void Circle::draw(Window const& w1)
 }
 void Circle::draw(Window const& w1,Color c1)
 {
-    for(int i = 500 ; i>0;i--)
+    for(int i=0;i<500;i++)
     {
     float x1{center_.x_ + radius_ * std::sin(w1.get_time()-i)};
     float y1{center_.y_+ radius_ * std::cos(w1.get_time()-i)};
