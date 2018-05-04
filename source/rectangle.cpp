@@ -48,3 +48,22 @@ void Rectangle::draw(Window const& w1) const
    w1.draw_line(min_.x_,min_.y_,max_.x_,min_.y_,0.0f,0.0f,1.0f);
    w1.draw_line(min_.x_,max_.y_,max_.x_,max_.y_,0.0f,0.0f,1.0f);
 }
+
+void Rectangle::draw(Window const& w1, Color c1) const
+{
+   w1.draw_line(max_.x_,max_.y_,max_.x_,min_.y_,c1.r,c1.g,c1.b);
+   w1.draw_line(min_.x_,min_.y_,min_.x_,max_.y_,c1.r,c1.g,c1.b);
+   w1.draw_line(min_.x_,min_.y_,max_.x_,min_.y_,c1.r,c1.g,c1.b);
+   w1.draw_line(min_.x_,max_.y_,max_.x_,max_.y_,c1.r,c1.g,c1.b);
+}
+bool Rectangle::is_inside(Vec2 punct) const
+{
+   if(punct.x_<= max_.x_ && punct.x_>= min_.x_ && punct.y_ <= max_.y_ && punct.y_ >= min_.y_)
+   {
+       return true;
+   }
+   else
+   {
+       return false;
+   }
+}

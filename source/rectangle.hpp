@@ -19,7 +19,9 @@ class Rectangle
   Vec2 get_min();
   float circumference() const;
   Color get_color_rectangle();
-  void draw(Window const& w1) const ;
+  void draw(Window const& w1) const;
+  void draw(Window const& w1, Color c1) const;
+  bool is_inside(Vec2 punct) const;
 };
 
 

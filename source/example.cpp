@@ -50,21 +50,55 @@ int main(int argc, char* argv[])
 
     std::string text = "mouse position: (" + std::to_string(m.first) + ", " + std::to_string(m.second) + ")";
     win.draw_text(10, 5, 35.0f, text);
-
+//2.11
+    //rectangle
     Vec2 max(700,600);
     Vec2 min(200,400);
     Color color1(0.0f , 0.0f , 1.0f);
-    Rectangle rectang1e(max,min,color1);
-    rectang1e.draw(win);
-    
+    Color color2(0.0f , 1.0f , 0.0f);
+    Rectangle rectang1e1(max,min,color1);
+    Rectangle rectang1e2(max,min,color1);
+    Rectangle rectang1e3(max,min,color1);
+    rectang1e1.draw(win);
+    //circle
     float radius = 100;
     Vec2 v1(400.0f,400.0f);
-
-    Circle c1(radius,v1,color1);
-    c1.draw(win);
-
-
-
+    Circle circle1(radius,v1,color1);
+    Circle circle2(radius,v1,color1);
+    Circle circle3(radius,v1,color1);
+    circle1.draw(win);
+//2.12
+    //rectang1e
+    rectang1e1.draw(win,color2);
+    //circle
+    circle1.draw(win,color2);
+//2.13
+  //circle
+  std :: vector <Circle> vector_circle {circle1,circle2,circle3};
+  Vec2 vector11;
+  vector11.x_ = float (m.first);
+  vector11.y_ = float (m.second);
+  for(Circle target: vector_circle){
+    if(target.is_inside(vector11))
+    {
+      target.draw(win,color1);
+    }
+  }
+  //rectangle
+  std :: vector <Rectangle> vector_rectangle {rectang1e1,rectang1e2,rectang1e3};
+  Vec2 vector12;
+  vector12.x_ = float (m.first);
+  vector12.y_ = float (m.second);
+  for(Rectangle target: vector_rectangle){
+    if(target.is_inside(vector12))
+    {
+      target.draw(win,color1);
+    }
+  }
+    
+    
+    
+    
     win.update();
   }
 
