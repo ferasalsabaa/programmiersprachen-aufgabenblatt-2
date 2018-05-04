@@ -5,9 +5,9 @@
 #include <cmath>
 #include <iostream>
 
-Circle::Circle() : radius_{0.0f} , center_{0.0f,0.0f} 
+Circle::Circle() : radius_{0.0f} , center_{0.0f,0.0f} , color_circle_{0.0f,0.0f,0.0f}
 {}
-Circle::Circle(float radius , Vec2 center) : radius_{radius}, center_{center}
+Circle::Circle(float radius , Vec2 center , Color color_circle) : radius_{radius}, center_{center}, color_circle_{color_circle}
 {}
 Vec2 Circle::get_center()
 {
@@ -20,4 +20,8 @@ Vec2 Circle::get_center()
 float Circle::circumference() const
 {
     return 2*M_PI*radius_;
+}
+Color Circle::get_color_circle()
+{
+    return color_circle_ ;
 }
