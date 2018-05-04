@@ -244,6 +244,7 @@ TEST_CASE("describe_color", "[color]")
   REQUIRE( black.b== Approx(0.0).epsilon(0.001));
 }
 //2.8 
+//circle
 TEST_CASE("describe_circle", "[circle]")
 {
   Circle c1;
@@ -256,8 +257,27 @@ TEST_CASE("describe_circle", "[circle]")
   REQUIRE(c2.get_center().x_ ==2) ;
   REQUIRE(c2.get_center().y_ == 3) ;
 }
-  
-
+//rectangle
+TEST_CASE("describe_rectangle", "[rectangle]")
+{
+  Rectangle r1;
+  Vec2 v1{2,4};
+  Vec2 v2{7,6};
+  Rectangle r2 {v2,v1};
+  Vec2 v3{2,6};
+  Vec2 v4{7,4};
+  Rectangle r3 {v3,v4};
+  REQUIRE(r1.get_max().x_== 0);
+  REQUIRE(r1.get_max().y_== 0);
+  REQUIRE(r2.get_max().x_== 7);
+  REQUIRE(r2.get_max().y_== 6);
+  REQUIRE(r2.get_min().x_== 2);
+  REQUIRE(r2.get_min().y_== 4);
+   REQUIRE(r3.get_max().x_== 7);
+  REQUIRE(r3.get_max().y_== 6);
+  REQUIRE(r3.get_min().x_== 2);
+  REQUIRE(r3.get_min().y_== 4);
+}
 
 int main(int argc, char *argv[])
 {

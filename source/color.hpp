@@ -1,7 +1,6 @@
 #ifndef COLOR_HPP
 #define COLOR_HPP
 #include <algorithm>
-//#include <io>
 using namespace std ;
 struct Color
 {
