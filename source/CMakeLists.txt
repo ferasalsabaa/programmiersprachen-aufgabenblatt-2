@@ -26,6 +26,7 @@ add_executable(tests
   color.hpp
   circle.cpp
   rectangle.cpp
+  window.cpp
   )
 target_link_libraries(tests
   glfw

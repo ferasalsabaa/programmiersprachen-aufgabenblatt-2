@@ -41,3 +41,10 @@ Color Rectangle::get_color_rectangle()
 {
     return color_rectangle_;
 }
+void Rectangle::draw(Window const& w1) const
+{
+   w1.draw_line(max_.x_,max_.y_,max_.x_,min_.y_,0.0f,0.0f,1.0f);
+   w1.draw_line(min_.x_,min_.y_,min_.x_,max_.y_,0.0f,0.0f,1.0f);
+   w1.draw_line(min_.x_,min_.y_,max_.x_,min_.y_,0.0f,0.0f,1.0f);
+   w1.draw_line(min_.x_,max_.y_,max_.x_,max_.y_,0.0f,0.0f,1.0f);
+}

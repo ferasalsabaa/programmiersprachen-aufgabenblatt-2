@@ -1,5 +1,8 @@
 #include "window.hpp"
 #include <GLFW/glfw3.h>
+#include "rectangle.hpp"
+#include "vec2.hpp"
+#include "color.hpp"
 #include <utility>
 #include <cmath>
 
@@ -46,6 +49,12 @@ int main(int argc, char* argv[])
 
     std::string text = "mouse position: (" + std::to_string(m.first) + ", " + std::to_string(m.second) + ")";
     win.draw_text(10, 5, 35.0f, text);
+    Vec2 max(700,600);
+    Vec2 min(200,400);
+    Color color1(0.0f , 0.0f , 1.0f);
+    Rectangle rectang1e(max,min,color1);
+    rectang1e.draw(win);
+
 
     win.update();
   }
