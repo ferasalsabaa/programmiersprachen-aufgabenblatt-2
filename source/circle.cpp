@@ -25,3 +25,12 @@ Color Circle::get_color_circle()
 {
     return color_circle_ ;
 }
+void Circle::draw(Window const& w1) const
+{
+    for(int i = 500 ; i>0;i--)
+    {
+    float x1{center_.x_ + radius_ * std::sin(w1.get_time()-i)};
+    float y1{center_.y_+ radius_ * std::cos(w1.get_time()-i)};
+    w1.draw_point(x1,y1,0.0f,0.0f,1.0f);
+    }
+}
