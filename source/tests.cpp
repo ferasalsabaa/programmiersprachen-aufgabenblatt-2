@@ -125,13 +125,18 @@ TEST_CASE("describe_mat2_Standard_constructor", "[mat]")
   Mat2 m1 ;
   REQUIRE(m1.arr[0][0]== 1 );
   REQUIRE(m1.arr[1][0]== 0 );
+  REQUIRE(m1.arr[1][0]== 0 );
+  REQUIRE(m1.arr[1][1]== 1 );
 }
 //User-Konstruktor
 TEST_CASE("describe_mat2_user_constructor", "[mat]")
 {
   Mat2 m1{2,3,5,7} ;
   REQUIRE(m1.arr[0][0]== 2 );
+  REQUIRE(m1.arr[0][1]== 3 );
   REQUIRE(m1.arr[1][0]== 5 );
+  REQUIRE(m1.arr[1][1]== 7 );
+  
 }
 //operator *=
 TEST_CASE("describe_mat2_*=", "[mat]")
@@ -141,14 +146,16 @@ TEST_CASE("describe_mat2_*=", "[mat]")
   m1 *= (m2);
   REQUIRE(m1.arr[0][0]== 9 );
   REQUIRE(m1.arr[1][1]== 19);
+  REQUIRE(m1.arr[0][1]== 9);
+  REQUIRE(m1.arr[1][0]== 23);
 }
-//operator *
+//operator 
 TEST_CASE("describe_mat2_*", "[mat]")
 {
   Mat2 m1{1,2,3,4} ;
   Mat2 m2{5,1,2,4} ;
-  
   REQUIRE( (m1 * m2).arr[0][0]== 9);
+  REQUIRE( (m1 * m2).arr[0][1]== 9);
   REQUIRE( (m1 * m2).arr[1][1]== 19);
   REQUIRE( (m1 * m2).arr[1][0]== 23);
 }
@@ -167,7 +174,6 @@ TEST_CASE("describe_mat2_inverse", "[mat]")
 {
   Mat2 m1{2,4,6,3} ;
   Mat2 m3 = inverse(m1) ;
-  
   REQUIRE( m3.arr[0][0]== Approx(-0.1666).epsilon(0.001));
   REQUIRE( m3.arr[0][1]== Approx(0.222).epsilon(0.001));
   REQUIRE( m3.arr[1][0]== Approx(0.333).epsilon(0.001));
@@ -178,7 +184,6 @@ TEST_CASE("describe_mat2_transpose", "[mat]")
 {
   Mat2 m1{2,4,6,3} ;
   Mat2 m2 = transpose(m1) ;
-  
   REQUIRE( m2.arr[0][0]== 2);
   REQUIRE( m2.arr[0][1]== 6);
   REQUIRE( m2.arr[1][0]== 4);
@@ -193,7 +198,6 @@ TEST_CASE("describe_mat2_operator*_vector_matrix", "[mat]")
   Mat2 m2{2,4,3,1} ;
   Vec2 v2{2,3} ;
   Vec2 v_result2 = v2* m2 ;
-  
   REQUIRE( v_result.x_ == 17);
   REQUIRE( v_result.y_ == 39);
   REQUIRE( v_result2.x_ == 16);
@@ -208,7 +212,6 @@ TEST_CASE("describe_mat2_operator*_matrix_vector", "[mat]")
   Mat2 m2{2,4,3,1} ;
   Vec2 v2{2,3} ;
   Vec2 v_result2 = m2* v2 ;
-  
   REQUIRE( v_result.x_ == 17);
   REQUIRE( v_result.y_ == 39);
   REQUIRE( v_result2.x_ == 16);
@@ -219,7 +222,6 @@ TEST_CASE("describe_mat2_winkel_phi", "[mat]")
 {
   float x = 45 ;
   float y = 90 ;
-  
   REQUIRE( make_rotation_mat2(x).arr[0][0] == Approx(0.525).epsilon(0.001));
   REQUIRE( make_rotation_mat2(x).arr[0][1] == Approx(-0.85).epsilon(0.001));
   REQUIRE( make_rotation_mat2(x).arr[1][0] == Approx(0.85).epsilon(0.001));
@@ -235,7 +237,6 @@ TEST_CASE("describe_color", "[color]")
 {
   Color black {0.0}; // sets r = g = b =0.0
   Color red {1.0 ,0.0 ,0.0};
-  
   REQUIRE( red.r== Approx(1.0).epsilon(0.001));
   REQUIRE( red.g== Approx(0.0).epsilon(0.001));
   REQUIRE( red.b== Approx(0.0).epsilon(0.001));
