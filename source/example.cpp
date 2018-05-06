@@ -49,7 +49,7 @@ int main(int argc, char* argv[])
     win.draw_line(m.first, 0, m.first, 10, 0.0, 0.0, 0.0);
     win.draw_line(m.first, win.window_size().second - 10, m.first, win.window_size().second, 0.0, 0.0, 0.0);
 
-    std::string text = "mouse position: (" + std::to_string(m.first) + ", " + std::to_string(m.second) + ")";
+    std::string text = "mouse position: (" + std::to_string(m.first) + ", " + std::to_string(m.second) + ")" ;
     win.draw_text(10, 5, 35.0f, text);
 //2.11
     //rectangle
@@ -101,23 +101,27 @@ int main(int argc, char* argv[])
 int second=(int) win.get_time() % 60;
 int minute=0;
 int hour=0;
-if(second>60)
-{
-  minute = win.get_time() / 60;
-}
-if(minute > 60)
-{
-  hour = win.get_time() / 60;
-}
 double x_second{400 + 100 * std::sin(second*2 *M_PI / 60)};
 double y_second{400 - 100 *  std::cos(second*2 *M_PI / 60)};
 win.draw_line(400,400,x_second,y_second,color1.r,color1.g,color1.b);
-double x_minute{400 + 165 * std::sin(minute*2 *M_PI / 60)};
-double y_minute{400 - 165 *  std::cos(minute*2 *M_PI / 60)};
+
+  minute = (int) win.get_time() / 60 ;
+
+if(minute > 60)
+{
+  hour = (int) win.get_time() / 60;
+}
+
+double x_minute{400 + 150 * std::sin(minute*2 *M_PI / 60)};
+double y_minute{400 - 150 *  std::cos(minute*2 *M_PI / 60)};
 win.draw_line(400,400,x_minute,y_minute,color3.r,color3.g,color3.b);
-double x_hour{400 + 180 * std::sin(hour*2 *M_PI / 60)};
-double y_hour{400 - 180 *  std::cos(hour*2 *M_PI / 60)};
+double x_hour{400 + 180 * std::sin(hour*2 *M_PI / 12)};
+double y_hour{400 - 180 *  std::cos(hour*2 *M_PI / 12)};
 win.draw_line(400,400,x_hour,y_hour,color1.r,color1.g,color1.b);
+
+
+std::string text11 = "second,minute,hour: ("  + std::to_string(second) + ", " + std::to_string(minute) + ", " + std::to_string(hour) +")";
+win.draw_text(10, 60, 35.0f, text11);
 
     
     
