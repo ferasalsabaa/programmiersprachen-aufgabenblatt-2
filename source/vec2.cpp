@@ -20,23 +20,23 @@
     Vec2& 
     Vec2::operator +=( Vec2 const& v )
     {
-      x_ +=  v.x_ ;
-      y_ +=  v.y_ ;
+      x_ +=  v.x_;
+      y_ +=  v.y_;
       return *this;
     }
     Vec2& 
     Vec2::operator -=( Vec2 const& v )
     {
-      x_ -=  v.x_ ;
-      y_ -=  v.y_ ;
+      x_ -=  v.x_;
+      y_ -=  v.y_;
       return *this;
     }
     
     Vec2&
     Vec2::operator *= (float s)
     {
-      x_ *= s ;
-      y_ *= s ;
+      x_ *= s;
+      y_ *= s;
       return *this;
     }
 
@@ -57,28 +57,28 @@
 Vec2 operator+( Vec2 const & u , Vec2 const & v )
 {
   Vec2 vector (u);
-  vector += v ;
-  return vector ;
+  vector += v;
+  return vector;
 }
 Vec2 operator-( Vec2 const & u , Vec2 const & v )
 {
   Vec2 vector(u);
-  vector -= v ;
-  return vector ;
+  vector -= v;
+  return vector;
 }
 Vec2 operator *( Vec2 const & v , float s )
 {
-  Vec2 vector (v) ;
+  Vec2 vector (v);
   vector *= s;
   return vector;
 }
 Vec2 operator /( Vec2 const & v , float s )
 {
-  Vec2 vector (v) ;
+  Vec2 vector (v);
   vector /= s;
-  return vector ;
+  return vector;
 }
 Vec2 operator *( float s , Vec2 const & v )
 {
-  return v*s ;
+  return v*s;
 }

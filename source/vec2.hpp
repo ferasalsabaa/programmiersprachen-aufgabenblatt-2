@@ -3,8 +3,8 @@
 
 struct Vec2
 {
-    float x_ ;
-    float y_ ;
+    float x_;
+    float y_;
     Vec2();
     ~Vec2();
     Vec2(float x,float y);
